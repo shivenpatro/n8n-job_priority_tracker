@@ -1,0 +1,151 @@
+[
+  {
+    "id": "senior-ai-engineer-remote-101",
+    "title": "Senior AI / ML Engineer (LangChain, vLLM, PyTorch)",
+    "company": "CognitiveAI Labs",
+    "salary_normalized_annual": null,
+    "languages_found": [
+      "Python"
+    ],
+    "frameworks_found": [],
+    "ai_ml_found": [
+      "PyTorch",
+      "LangChain",
+      "vLLM"
+    ],
+    "cloud_found": [
+      "AWS",
+      "Docker"
+    ],
+    "primary_role": "AI/ML Engineer"
+  },
+  {
+    "id": "staff-data-engineer-102",
+    "title": "Staff Data Engineer - Streaming & Cloud Pipelines",
+    "company": "DataStream Global",
+    "salary_normalized_annual": null,
+    "languages_found": [
+      "Python"
+    ],
+    "frameworks_found": [],
+    "ai_ml_found": [],
+    "cloud_found": [
+      "GCP",
+      "Terraform",
+      "Kafka",
+      "CI/CD"
+    ],
+    "primary_role": "Data Engineer"
+  },
+  {
+    "id": "jobicy-201",
+    "title": "Lead Fullstack Engineer (Next.js, TypeScript, Node.js)",
+    "company": "Nexus Cloud Corp",
+    "salary_normalized_annual": null,
+    "languages_found": [
+      "TypeScript"
+    ],
+    "frameworks_found": [
+      "React",
+      "Next.js",
+      "Node.js"
+    ],
+    "ai_ml_found": [],
+    "cloud_found": [
+      "AWS",
+      "Docker",
+      "CI/CD"
+    ],
+    "primary_role": "Backend"
+  },
+  {
+    "id": "jobicy-202",
+    "title": "Senior DevOps / SRE Specialist (Kubernetes, Terraform)",
+    "company": "ScaleOps Systems",
+    "salary_normalized_annual": null,
+    "languages_found": [
+      "Python",
+      "Go"
+    ],
+    "frameworks_found": [],
+    "ai_ml_found": [],
+    "cloud_found": [
+      "AWS",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD"
+    ],
+    "primary_role": "Backend"
+  },
+  {
+    "id": "remoteok-301",
+    "title": "Senior Backend Engineer (Python, FastAPI, Postgres)",
+    "company": "Fintech Pulse",
+    "salary_normalized_annual": 142500,
+    "languages_found": [
+      "Python"
+    ],
+    "frameworks_found": [
+      "FastAPI"
+    ],
+    "ai_ml_found": [],
+    "cloud_found": [
+      "AWS",
+      "Docker",
+      "Kafka"
+    ],
+    "primary_role": "Backend"
+  },
+  {
+    "id": "remoteok-302",
+    "title": "Staff Backend Engineer - Rust & Distributed Systems",
+    "company": "RustCore Protocol",
+    "salary_normalized_annual": 190000,
+    "languages_found": [
+      "Rust"
+    ],
+    "frameworks_found": [],
+    "ai_ml_found": [],
+    "cloud_found": [
+      "Docker",
+      "Kubernetes"
+    ],
+    "primary_role": "Backend"
+  },
+  {
+    "id": "remoteok-303",
+    "title": "Frontend Engineer (React, Vue, TypeScript)",
+    "company": "VividUI",
+    "salary_normalized_annual": 115000,
+    "languages_found": [
+      "TypeScript",
+      "JavaScript"
+    ],
+    "frameworks_found": [
+      "React",
+      "Next.js"
+    ],
+    "ai_ml_found": [],
+    "cloud_found": [],
+    "primary_role": "Backend"
+  },
+  {
+    "id": "jobicy-203",
+    "title": "GenAI & Agentic Systems Engineer (OpenAI, HuggingFace, Weaviate)",
+    "company": "OmniAgentics",
+    "salary_normalized_annual": null,
+    "languages_found": [
+      "Python"
+    ],
+    "frameworks_found": [
+      "FastAPI"
+    ],
+    "ai_ml_found": [
+      "LangChain",
+      "OpenAI",
+      "Vector DBs"
+    ],
+    "cloud_found": [],
+    "primary_role": "Backend"
+  }
+]

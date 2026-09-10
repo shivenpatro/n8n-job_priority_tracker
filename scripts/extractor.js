@@ -325,25 +325,42 @@ function deduplicateJobs(jobs) {
  * Complete cleaning & enrichment pipeline for a single job
  */
 function cleanAndEnrichJob(job) {
-  const sanitizedTitle = sanitizeText(job.title);
-  const sanitizedDesc = sanitizeText(job.description);
-  const salaryData = normalizeSalary(job.salary_raw);
+  const rawTitle = job.title || job.jobTitle || job.position || '';
+  const rawCompany = job.company || job.companyName || job.company_name || '';
+  const rawDesc = job.description || job.jobDescription || '';
+  const rawId = job.id || job.slug || job.jobSlug || '';
+  const rawUrl = job.url || job.apply_url || '';
+  const rawPublished = job.published_at || job.pubDate || job.date || (job.created_at ? new Date(job.created_at * 1000).toISOString() : new Date().toISOString());
+
+  let rawSalary = job.salary_raw || job.salary || null;
+  if (!rawSalary && (job.salaryMin || job.salaryMax)) {
+    const curr = job.salaryCurrency || '$';
+    const period = job.salaryPeriod ? ` / ${job.salaryPeriod}` : '';
+    rawSalary = `${curr}${job.salaryMin || 0} - ${curr}${job.salaryMax || 0}${period}`;
+  }
+  if (!rawSalary && (job.salary_min || job.salary_max)) {
+    rawSalary = `$${job.salary_min || 0} - $${job.salary_max || 0}`;
+  }
+
+  const sanitizedTitle = sanitizeText(rawTitle);
+  const sanitizedDesc = sanitizeText(rawDesc);
+  const salaryData = normalizeSalary(rawSalary);
   const tokenData = extractTokens(sanitizedDesc, sanitizedTitle);
 
   return {
-    id: job.id,
+    id: String(rawId),
     title: sanitizedTitle,
-    company: sanitizeText(job.company),
+    company: sanitizeText(rawCompany),
     description: sanitizedDesc,
-    url: job.url,
-    published_at: job.published_at,
-    salary_raw: job.salary_raw,
+    url: rawUrl,
+    published_at: rawPublished,
+    salary_raw: rawSalary,
     salary_min: salaryData.salary_min,
     salary_max: salaryData.salary_max,
     salary_currency: salaryData.salary_currency,
     salary_period: salaryData.salary_period,
     salary_normalized_annual: salaryData.salary_normalized_annual,
-    source: job.source,
+    source: job.source || 'unknown',
     languages_found: tokenData.languages_found,
     frameworks_found: tokenData.frameworks_found,
     ai_ml_found: tokenData.ai_ml_found,

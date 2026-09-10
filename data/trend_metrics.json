@@ -1,0 +1,715 @@
+{
+  "generated_at": "2026-09-10T01:39:51.451703+00:00",
+  "total_jobs": 8,
+  "jobs_with_salary": 3,
+  "overall_salary_stats": {
+    "p25": 115000.0,
+    "median": 142500,
+    "p75": 190000.0,
+    "count": 3
+  },
+  "top_fastest_growing": [
+    {
+      "skill": "Python",
+      "category": "languages",
+      "count": 5,
+      "share_pct": 62.5,
+      "previous_share_pct": 62.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "AWS",
+      "category": "infra_cloud",
+      "count": 4,
+      "share_pct": 50.0,
+      "previous_share_pct": 50.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Docker",
+      "category": "infra_cloud",
+      "count": 4,
+      "share_pct": 50.0,
+      "previous_share_pct": 50.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 130625.0,
+        "median": 166250.0,
+        "p75": 201875.0,
+        "count": 2
+      }
+    },
+    {
+      "skill": "CI/CD",
+      "category": "infra_cloud",
+      "count": 3,
+      "share_pct": 37.5,
+      "previous_share_pct": 37.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "TypeScript",
+      "category": "languages",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 115000,
+        "median": 115000,
+        "p75": 115000,
+        "count": 1
+      }
+    }
+  ],
+  "top_in_demand": [
+    {
+      "skill": "Python",
+      "category": "languages",
+      "count": 5,
+      "share_pct": 62.5,
+      "previous_share_pct": 62.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "AWS",
+      "category": "infra_cloud",
+      "count": 4,
+      "share_pct": 50.0,
+      "previous_share_pct": 50.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Docker",
+      "category": "infra_cloud",
+      "count": 4,
+      "share_pct": 50.0,
+      "previous_share_pct": 50.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 130625.0,
+        "median": 166250.0,
+        "p75": 201875.0,
+        "count": 2
+      }
+    },
+    {
+      "skill": "CI/CD",
+      "category": "infra_cloud",
+      "count": 3,
+      "share_pct": 37.5,
+      "previous_share_pct": 37.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "TypeScript",
+      "category": "languages",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 115000,
+        "median": 115000,
+        "p75": 115000,
+        "count": 1
+      }
+    }
+  ],
+  "skills_breakdown": [
+    {
+      "skill": "Python",
+      "category": "languages",
+      "count": 5,
+      "share_pct": 62.5,
+      "previous_share_pct": 62.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "TypeScript",
+      "category": "languages",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 115000,
+        "median": 115000,
+        "p75": 115000,
+        "count": 1
+      }
+    },
+    {
+      "skill": "JavaScript",
+      "category": "languages",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 115000,
+        "median": 115000,
+        "p75": 115000,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Go",
+      "category": "languages",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Rust",
+      "category": "languages",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 190000,
+        "median": 190000,
+        "p75": 190000,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Java",
+      "category": "languages",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "C++",
+      "category": "languages",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Ruby",
+      "category": "languages",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "PHP",
+      "category": "languages",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Swift",
+      "category": "languages",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "React",
+      "category": "frameworks",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 115000,
+        "median": 115000,
+        "p75": 115000,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Next.js",
+      "category": "frameworks",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 115000,
+        "median": 115000,
+        "p75": 115000,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Vue",
+      "category": "frameworks",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Angular",
+      "category": "frameworks",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Node.js",
+      "category": "frameworks",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "FastAPI",
+      "category": "frameworks",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Django",
+      "category": "frameworks",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Spring Boot",
+      "category": "frameworks",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "PyTorch",
+      "category": "ai_ml",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "TensorFlow",
+      "category": "ai_ml",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "LangChain",
+      "category": "ai_ml",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "LiteLLM",
+      "category": "ai_ml",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "vLLM",
+      "category": "ai_ml",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "HuggingFace",
+      "category": "ai_ml",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "OpenAI",
+      "category": "ai_ml",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Vector DBs",
+      "category": "ai_ml",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "AWS",
+      "category": "infra_cloud",
+      "count": 4,
+      "share_pct": 50.0,
+      "previous_share_pct": 50.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    },
+    {
+      "skill": "GCP",
+      "category": "infra_cloud",
+      "count": 1,
+      "share_pct": 12.5,
+      "previous_share_pct": 12.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Azure",
+      "category": "infra_cloud",
+      "count": 0,
+      "share_pct": 0.0,
+      "previous_share_pct": 0.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Docker",
+      "category": "infra_cloud",
+      "count": 4,
+      "share_pct": 50.0,
+      "previous_share_pct": 50.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 130625.0,
+        "median": 166250.0,
+        "p75": 201875.0,
+        "count": 2
+      }
+    },
+    {
+      "skill": "Kubernetes",
+      "category": "infra_cloud",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 190000,
+        "median": 190000,
+        "p75": 190000,
+        "count": 1
+      }
+    },
+    {
+      "skill": "Terraform",
+      "category": "infra_cloud",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "CI/CD",
+      "category": "infra_cloud",
+      "count": 3,
+      "share_pct": 37.5,
+      "previous_share_pct": 37.5,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      }
+    },
+    {
+      "skill": "Kafka",
+      "category": "infra_cloud",
+      "count": 2,
+      "share_pct": 25.0,
+      "previous_share_pct": 25.0,
+      "delta_momentum": 0.0,
+      "salary_stats": {
+        "p25": 142500,
+        "median": 142500,
+        "p75": 142500,
+        "count": 1
+      }
+    }
+  ],
+  "roles_breakdown": [
+    {
+      "role": "Backend",
+      "job_count": 6,
+      "share_pct": 75.0,
+      "ai_required_jobs": 1,
+      "ai_penetration_pct": 16.67,
+      "salary_stats": {
+        "p25": 115000.0,
+        "median": 142500,
+        "p75": 190000.0,
+        "count": 3
+      },
+      "top_skills": [
+        "AWS",
+        "Docker",
+        "Python"
+      ]
+    },
+    {
+      "role": "AI/ML Engineer",
+      "job_count": 1,
+      "share_pct": 12.5,
+      "ai_required_jobs": 1,
+      "ai_penetration_pct": 100.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      },
+      "top_skills": [
+        "vLLM",
+        "Python",
+        "PyTorch"
+      ]
+    },
+    {
+      "role": "Data Engineer",
+      "job_count": 1,
+      "share_pct": 12.5,
+      "ai_required_jobs": 0,
+      "ai_penetration_pct": 0.0,
+      "salary_stats": {
+        "p25": null,
+        "median": null,
+        "p75": null,
+        "count": 0
+      },
+      "top_skills": [
+        "Kafka",
+        "Terraform",
+        "GCP"
+      ]
+    }
+  ],
+  "compensation_by_category": {
+    "languages": {
+      "p25": 115000.0,
+      "median": 128750.0,
+      "p75": 178125.0,
+      "count": 4
+    },
+    "frameworks": {
+      "p25": 115000.0,
+      "median": 115000,
+      "p75": 142500.0,
+      "count": 3
+    },
+    "ai_ml": {
+      "p25": null,
+      "median": null,
+      "p75": null,
+      "count": 0
+    },
+    "infra_cloud": {
+      "p25": 142500.0,
+      "median": 142500,
+      "p75": 190000.0,
+      "count": 5
+    }
+  }
+}
