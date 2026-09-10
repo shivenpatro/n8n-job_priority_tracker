@@ -1,4 +1,4 @@
-# 📈 Tech Job Market & Skill Arbitrage Monitor
+# Tech Job Market & Skill Arbitrage Monitor
 
 > **Zero-server, autonomous analytics pipeline** powered by headless **n8n**, Node.js/Python, and GitHub Actions. Ingests remote tech postings, performs bounded regex token extraction, computes skill velocity ("Boom Index"), indexes compensation percentiles, and publishes live market artifacts directly to this repository.
 
@@ -6,33 +6,33 @@
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Runtime](https://img.shields.io/badge/n8n-headless%20CLI-EA4B71.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg)
-![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-10%2015:00:51%20UTC-blue)
+![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-10%2019:12:56%20UTC-blue)
 
 ---
 
-## ⚡ Live Market Highlights (Latest Run: `2026-09-10 15:00:51 UTC`)
+## Live Market Highlights (Latest Run: `2026-09-10 19:12:56 UTC`)
 
-| 📊 Total Jobs Ingested | 💰 Postings with Salary | 💵 Market Median Salary | 🎯 Active Categories |
+| Total Jobs Ingested | Postings with Salary | Market Median Salary | Active Categories |
 | :---: | :---: | :---: | :---: |
 | **6** | **4** | **$152,500** | **Languages, Frameworks, AI/ML, Cloud** |
 
 <br/>
 
-### 🚀 Top 10 Trending Technologies
+### Top 10 Trending Technologies
 
 <!-- MARKET_TABLE_START -->
 | Rank | Skill | Category | Frequency | Market Share | Momentum (Δ) | Median Salary (USD) | Status |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| 1 | **Docker** | `infra_cloud` | 4 | 66.7% | 0.0% | $162,500 | 🔥 High Demand |
-| 2 | **Python** | `languages` | 3 | 50.0% | 0.0% | $142,500 | 🔥 High Demand |
-| 3 | **AWS** | `infra_cloud` | 3 | 50.0% | 0.0% | $152,500 | 🔥 High Demand |
-| 4 | **TypeScript** | `languages` | 2 | 33.3% | 0.0% | $138,750 | 🟢 Steady |
-| 5 | **JavaScript** | `languages` | 2 | 33.3% | 0.0% | $138,750 | 🟢 Steady |
-| 6 | **React** | `frameworks` | 2 | 33.3% | 0.0% | $138,750 | 🟢 Steady |
-| 7 | **Next.js** | `frameworks` | 2 | 33.3% | 0.0% | $138,750 | 🟢 Steady |
-| 8 | **CI/CD** | `infra_cloud` | 2 | 33.3% | 0.0% | $162,500 | 🟢 Steady |
-| 9 | **Kafka** | `infra_cloud` | 2 | 33.3% | 0.0% | $142,500 | 🟢 Steady |
-| 10 | **Rust** | `languages` | 1 | 16.7% | 0.0% | $190,000 | 🟢 Steady |
+| 1 | **Docker** | `infra_cloud` | 4 | 66.7% | 0.0% | $162,500 | High Demand |
+| 2 | **Python** | `languages` | 3 | 50.0% | 0.0% | $142,500 | High Demand |
+| 3 | **AWS** | `infra_cloud` | 3 | 50.0% | 0.0% | $152,500 | High Demand |
+| 4 | **TypeScript** | `languages` | 2 | 33.3% | 0.0% | $138,750 | Steady |
+| 5 | **JavaScript** | `languages` | 2 | 33.3% | 0.0% | $138,750 | Steady |
+| 6 | **React** | `frameworks` | 2 | 33.3% | 0.0% | $138,750 | Steady |
+| 7 | **Next.js** | `frameworks` | 2 | 33.3% | 0.0% | $138,750 | Steady |
+| 8 | **CI/CD** | `infra_cloud` | 2 | 33.3% | 0.0% | $162,500 | Steady |
+| 9 | **Kafka** | `infra_cloud` | 2 | 33.3% | 0.0% | $142,500 | Steady |
+| 10 | **Rust** | `languages` | 1 | 16.7% | 0.0% | $190,000 | Steady |
 <!-- MARKET_TABLE_END -->
 
 <br/>
@@ -42,7 +42,7 @@
 <tr>
 <td width="50%" valign="top">
 
-### ⚡ Top 5 Fastest Growing (Boom Index $\Delta$)
+### Top 5 Fastest Growing (Boom Index $\Delta$)
 - **Docker** (`infra_cloud`): +0.0% share (4 postings)
 - **Python** (`languages`): +0.0% share (3 postings)
 - **AWS** (`infra_cloud`): +0.0% share (3 postings)
@@ -52,7 +52,7 @@
 </td>
 <td width="50%" valign="top">
 
-### 🏆 Top 5 Most In-Demand Skills
+### Top 5 Most In-Demand Skills
 - **Docker** (`infra_cloud`): 4 postings (66.7% market penetration)
 - **Python** (`languages`): 3 postings (50.0% market penetration)
 - **AWS** (`infra_cloud`): 3 postings (50.0% market penetration)
@@ -66,21 +66,21 @@
 
 <br/>
 
-### 👥 Role Distribution & AI Skill Penetration
+### Role Distribution & AI Skill Penetration
 
 <!-- ROLE_TABLE_START -->
 | Role | Postings | Share | AI Skill Penetration | Median Salary | Top Required Skills |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Backend** | 2 | 33.3% | `0.0%` | $166,250 | Docker, Kafka, Python |
-| **AI/ML Engineer** | 1 | 16.7% | `100.0%` | N/A | Vector DBs, Python, LangChain |
-| **Data Engineer** | 1 | 16.7% | `0.0%` | N/A | CI/CD, Kafka, Python |
-| **Fullstack** | 1 | 16.7% | `0.0%` | $162,500 | CI/CD, Next.js, TypeScript |
-| **Frontend** | 1 | 16.7% | `0.0%` | $115,000 | Next.js, TypeScript, Vue |
+| **Backend** | 2 | 33.3% | `0.0%` | $166,250 | Docker, Python, FastAPI |
+| **AI/ML Engineer** | 1 | 16.7% | `100.0%` | N/A | LangChain, Python, LiteLLM |
+| **Data Engineer** | 1 | 16.7% | `0.0%` | N/A | GCP, Python, Kafka |
+| **Fullstack** | 1 | 16.7% | `0.0%` | $162,500 | Next.js, CI/CD, Docker |
+| **Frontend** | 1 | 16.7% | `0.0%` | $115,000 | Next.js, Vue, React |
 <!-- ROLE_TABLE_END -->
 
 ---
 
-## 🛠️ System Architecture
+## System Architecture
 
 ```text
                ┌────────────────────────────────────────────────────────┐
@@ -122,7 +122,7 @@
 
 ---
 
-## 📦 Artifacts & Deliverables
+## Artifacts & Deliverables
 
 - **`data/trend_metrics.json`**: Machine-readable statistical summary of all skills, momentum deltas, role distributions, and salary quartiles.
 - **`data/latest_jobs.json`**: Standardized, cleansed, and enriched remote tech job postings.
@@ -131,7 +131,7 @@
 
 ---
 
-## 💻 Local Quickstart
+## Local Quickstart
 
 ```bash
 # 1. Install dependencies

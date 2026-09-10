@@ -283,13 +283,13 @@ def generate_readme_content(metrics):
         delta = item["delta_momentum"]
         delta_str = f"+{delta:.1f}%" if delta > 0 else (f"{delta:.1f}%" if delta < 0 else "0.0%")
         if delta > 1.0:
-            status = "🚀 Surging"
+            status = "Surging"
         elif delta >= 0.0 and item["count"] >= 3:
-            status = "🔥 High Demand"
+            status = "High Demand"
         elif delta < 0:
-            status = "🔻 Cooling"
+            status = "Cooling"
         else:
-            status = "🟢 Steady"
+            status = "Steady"
 
         sal_med = item["salary_stats"].get("median")
         sal_str = f"${sal_med:,.0f}" if sal_med else "N/A"
@@ -327,7 +327,7 @@ def generate_readme_content(metrics):
         in_demand_lines.append(f"- **{s['skill']}** (`{s['category']}`): {s['count']} postings ({s['share_pct']:.1f}% market penetration)")
     in_demand_md = "\n".join(in_demand_lines) if in_demand_lines else "- No data available yet"
 
-    readme_content = f"""# 📈 Tech Job Market & Skill Arbitrage Monitor
+    readme_content = f"""# Tech Job Market & Skill Arbitrage Monitor
 
 > **Zero-server, autonomous analytics pipeline** powered by headless **n8n**, Node.js/Python, and GitHub Actions. Ingests remote tech postings, performs bounded regex token extraction, computes skill velocity ("Boom Index"), indexes compensation percentiles, and publishes live market artifacts directly to this repository.
 
@@ -339,15 +339,15 @@ def generate_readme_content(metrics):
 
 ---
 
-## ⚡ Live Market Highlights (Latest Run: `{gen_time}`)
+## Live Market Highlights (Latest Run: `{gen_time}`)
 
-| 📊 Total Jobs Ingested | 💰 Postings with Salary | 💵 Market Median Salary | 🎯 Active Categories |
+| Total Jobs Ingested | Postings with Salary | Market Median Salary | Active Categories |
 | :---: | :---: | :---: | :---: |
 | **{total_jobs}** | **{jobs_with_sal}** | **{med_sal_str}** | **Languages, Frameworks, AI/ML, Cloud** |
 
 <br/>
 
-### 🚀 Top 10 Trending Technologies
+### Top 10 Trending Technologies
 
 <!-- MARKET_TABLE_START -->
 {skills_table_md}
@@ -360,13 +360,13 @@ def generate_readme_content(metrics):
 <tr>
 <td width="50%" valign="top">
 
-### ⚡ Top 5 Fastest Growing (Boom Index $\Delta$)
+### Top 5 Fastest Growing (Boom Index $\Delta$)
 {fastest_md}
 
 </td>
 <td width="50%" valign="top">
 
-### 🏆 Top 5 Most In-Demand Skills
+### Top 5 Most In-Demand Skills
 {in_demand_md}
 
 </td>
@@ -376,7 +376,7 @@ def generate_readme_content(metrics):
 
 <br/>
 
-### 👥 Role Distribution & AI Skill Penetration
+### Role Distribution & AI Skill Penetration
 
 <!-- ROLE_TABLE_START -->
 {role_table_md}
@@ -384,7 +384,7 @@ def generate_readme_content(metrics):
 
 ---
 
-## 🛠️ System Architecture
+## System Architecture
 
 ```text
                ┌────────────────────────────────────────────────────────┐
@@ -426,7 +426,7 @@ def generate_readme_content(metrics):
 
 ---
 
-## 📦 Artifacts & Deliverables
+## Artifacts & Deliverables
 
 - **`data/trend_metrics.json`**: Machine-readable statistical summary of all skills, momentum deltas, role distributions, and salary quartiles.
 - **`data/latest_jobs.json`**: Standardized, cleansed, and enriched remote tech job postings.
@@ -435,7 +435,7 @@ def generate_readme_content(metrics):
 
 ---
 
-## 💻 Local Quickstart
+## Local Quickstart
 
 ```bash
 # 1. Install dependencies
