@@ -3,7 +3,16 @@
     "id": "senior-ai-engineer-remote-101",
     "title": "Senior AI / ML Engineer (LangChain, vLLM, PyTorch)",
     "company": "CognitiveAI Labs",
+    "description": "We are seeking a Senior AI Engineer with deep experience in Python , PyTorch , vLLM , and LangChain . You will design agentic workflows, orchestrate LLM inference with LiteLLM , and leverage Pinecone / vector databases on AWS and Docker .",
+    "url": "https://www.arbeitnow.com/jobs/companies/cognitiveai-labs/senior-ai-engineer-remote-101",
+    "published_at": "2025-03-10T04:13:20.000Z",
+    "salary_raw": null,
+    "salary_min": null,
+    "salary_max": null,
+    "salary_currency": "USD",
+    "salary_period": null,
     "salary_normalized_annual": null,
+    "source": "arbeitnow",
     "languages_found": [
       "Python"
     ],
@@ -11,7 +20,9 @@
     "ai_ml_found": [
       "PyTorch",
       "LangChain",
-      "vLLM"
+      "LiteLLM",
+      "vLLM",
+      "Vector DBs"
     ],
     "cloud_found": [
       "AWS",
@@ -23,7 +34,16 @@
     "id": "staff-data-engineer-102",
     "title": "Staff Data Engineer - Streaming & Cloud Pipelines",
     "company": "DataStream Global",
+    "description": "Looking for a Data Engineer experienced with Python , Kafka , GCP , and Terraform . Build scalable ETL pipelines and analytics infrastructure with CI/CD.",
+    "url": "https://www.arbeitnow.com/jobs/companies/datastream-global/staff-data-engineer-102",
+    "published_at": "2025-03-10T01:26:40.000Z",
+    "salary_raw": null,
+    "salary_min": null,
+    "salary_max": null,
+    "salary_currency": "USD",
+    "salary_period": null,
     "salary_normalized_annual": null,
+    "source": "arbeitnow",
     "languages_found": [
       "Python"
     ],
@@ -32,8 +52,8 @@
     "cloud_found": [
       "GCP",
       "Terraform",
-      "Kafka",
-      "CI/CD"
+      "CI/CD",
+      "Kafka"
     ],
     "primary_role": "Data Engineer"
   },
@@ -41,9 +61,19 @@
     "id": "jobicy-201",
     "title": "Lead Fullstack Engineer (Next.js, TypeScript, Node.js)",
     "company": "Nexus Cloud Corp",
-    "salary_normalized_annual": null,
+    "description": "Nexus Cloud is looking for an experienced Fullstack engineer proficient in TypeScript , React , Next.js , and Node.js . Familiarity with Docker , CI/CD , and AWS is a strong plus.",
+    "url": "https://jobicy.com/jobs/201-lead-fullstack-engineer",
+    "published_at": "2026-03-09T14:30:00.000Z",
+    "salary_raw": "USD140000 - USD185000 / year",
+    "salary_min": 140000,
+    "salary_max": 185000,
+    "salary_currency": "USD",
+    "salary_period": "year",
+    "salary_normalized_annual": 162500,
+    "source": "jobicy",
     "languages_found": [
-      "TypeScript"
+      "TypeScript",
+      "JavaScript"
     ],
     "frameworks_found": [
       "React",
@@ -56,32 +86,22 @@
       "Docker",
       "CI/CD"
     ],
-    "primary_role": "Backend"
-  },
-  {
-    "id": "jobicy-202",
-    "title": "Senior DevOps / SRE Specialist (Kubernetes, Terraform)",
-    "company": "ScaleOps Systems",
-    "salary_normalized_annual": null,
-    "languages_found": [
-      "Python",
-      "Go"
-    ],
-    "frameworks_found": [],
-    "ai_ml_found": [],
-    "cloud_found": [
-      "AWS",
-      "Kubernetes",
-      "Terraform",
-      "CI/CD"
-    ],
-    "primary_role": "Backend"
+    "primary_role": "Fullstack"
   },
   {
     "id": "remoteok-301",
     "title": "Senior Backend Engineer (Python, FastAPI, Postgres)",
     "company": "Fintech Pulse",
+    "description": "Fintech Pulse is seeking a Backend Engineer to build high-throughput APIs with FastAPI , Python , Docker , and AWS . Experience with Kafka is preferred.",
+    "url": "https://remoteok.com/remote-jobs/301-senior-backend-engineer",
+    "published_at": "2026-03-09T16:00:00.000Z",
+    "salary_raw": "$125000 - $160000",
+    "salary_min": 125000,
+    "salary_max": 160000,
+    "salary_currency": "USD",
+    "salary_period": "year",
     "salary_normalized_annual": 142500,
+    "source": "remoteok",
     "languages_found": [
       "Python"
     ],
@@ -100,13 +120,23 @@
     "id": "remoteok-302",
     "title": "Staff Backend Engineer - Rust & Distributed Systems",
     "company": "RustCore Protocol",
+    "description": "Join our core infra team writing high-performance Rust microservices. Requires knowledge of Docker , Kubernetes , Azure , and low-latency networking.",
+    "url": "https://remoteok.com/remote-jobs/302-staff-backend-engineer",
+    "published_at": "2026-03-07T09:45:00.000Z",
+    "salary_raw": "$160000 - $220000",
+    "salary_min": 160000,
+    "salary_max": 220000,
+    "salary_currency": "USD",
+    "salary_period": "year",
     "salary_normalized_annual": 190000,
+    "source": "remoteok",
     "languages_found": [
       "Rust"
     ],
     "frameworks_found": [],
     "ai_ml_found": [],
     "cloud_found": [
+      "Azure",
       "Docker",
       "Kubernetes"
     ],
@@ -116,36 +146,27 @@
     "id": "remoteok-303",
     "title": "Frontend Engineer (React, Vue, TypeScript)",
     "company": "VividUI",
+    "description": "Seeking a passionate Frontend Engineer with mastery of JavaScript , TypeScript , React , and modern CSS. Experience with Next.js is a plus.",
+    "url": "https://remoteok.com/remote-jobs/303-frontend-engineer",
+    "published_at": "2026-03-06T12:00:00.000Z",
+    "salary_raw": "$95000 - $135000",
+    "salary_min": 95000,
+    "salary_max": 135000,
+    "salary_currency": "USD",
+    "salary_period": "year",
     "salary_normalized_annual": 115000,
+    "source": "remoteok",
     "languages_found": [
       "TypeScript",
       "JavaScript"
     ],
     "frameworks_found": [
       "React",
-      "Next.js"
+      "Next.js",
+      "Vue"
     ],
     "ai_ml_found": [],
     "cloud_found": [],
-    "primary_role": "Backend"
-  },
-  {
-    "id": "jobicy-203",
-    "title": "GenAI & Agentic Systems Engineer (OpenAI, HuggingFace, Weaviate)",
-    "company": "OmniAgentics",
-    "salary_normalized_annual": null,
-    "languages_found": [
-      "Python"
-    ],
-    "frameworks_found": [
-      "FastAPI"
-    ],
-    "ai_ml_found": [
-      "LangChain",
-      "OpenAI",
-      "Vector DBs"
-    ],
-    "cloud_found": [],
-    "primary_role": "Backend"
+    "primary_role": "Frontend"
   }
 ]

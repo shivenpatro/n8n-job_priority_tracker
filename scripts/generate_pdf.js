@@ -260,8 +260,8 @@ async function generatePdf() {
 
     console.log('[INFO] Setting page content...');
     await page.setContent(finalHtml, {
-      waitUntil: ['load', 'networkidle0'],
-      timeout: 30000
+      waitUntil: 'domcontentloaded',
+      timeout: 15000
     });
 
     console.log('[INFO] Generating publication-ready vector PDF...');

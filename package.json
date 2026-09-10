@@ -4,8 +4,9 @@
   "description": "Zero-server, scheduled automated analytics pipeline for tech job market & skill arbitrage monitor powered by headless n8n inside GitHub Actions",
   "main": "scripts/generate_pdf.js",
   "scripts": {
-    "test": "node --test test/*.test.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js",
     "pdf:generate": "node scripts/generate_pdf.js",
+    "pipeline:mock": "node --test test/pipeline_mock.test.js",
     "pipeline:dry-run": "npx n8n execute --file workflows/job_monitor_pipeline.json"
   },
   "keywords": [
