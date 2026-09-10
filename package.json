@@ -5,6 +5,7 @@
   "main": "scripts/generate_pdf.js",
   "scripts": {
     "test": "node --test test/*.test.js",
+    "pdf:generate": "node scripts/generate_pdf.js",
     "pipeline:dry-run": "npx n8n execute --file workflows/job_monitor_pipeline.json"
   },
   "keywords": [
@@ -17,6 +18,7 @@
   ],
   "author": "Shiven Patro",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "puppeteer": "^24.4.0"
+  }
 }

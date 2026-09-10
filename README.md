@@ -6,11 +6,11 @@
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Runtime](https://img.shields.io/badge/n8n-headless%20CLI-EA4B71.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg)
-![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-10%2001:39:51%20UTC-blue)
+![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-10%2014:56:54%20UTC-blue)
 
 ---
 
-## ⚡ Live Market Highlights (Latest Run: `2026-09-10 01:39:51 UTC`)
+## ⚡ Live Market Highlights (Latest Run: `2026-09-10 14:56:54 UTC`)
 
 | 📊 Total Jobs Ingested | 💰 Postings with Salary | 💵 Market Median Salary | 🎯 Active Categories |
 | :---: | :---: | :---: | :---: |
@@ -71,9 +71,9 @@
 <!-- ROLE_TABLE_START -->
 | Role | Postings | Share | AI Skill Penetration | Median Salary | Top Required Skills |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Backend** | 6 | 75.0% | `16.7%` | $142,500 | AWS, Docker, Python |
-| **AI/ML Engineer** | 1 | 12.5% | `100.0%` | N/A | vLLM, Python, PyTorch |
-| **Data Engineer** | 1 | 12.5% | `0.0%` | N/A | Kafka, Terraform, GCP |
+| **Backend** | 6 | 75.0% | `16.7%` | $142,500 | Docker, AWS, Python |
+| **AI/ML Engineer** | 1 | 12.5% | `100.0%` | N/A | PyTorch, Python, Docker |
+| **Data Engineer** | 1 | 12.5% | `0.0%` | N/A | Terraform, Python, GCP |
 <!-- ROLE_TABLE_END -->
 
 ---

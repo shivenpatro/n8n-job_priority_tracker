@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T01:39:51.451703+00:00",
+  "generated_at": "2026-09-10T14:56:54.103100+00:00",
   "total_jobs": 8,
   "jobs_with_salary": 3,
   "overall_salary_stats": {
@@ -644,8 +644,8 @@
         "count": 3
       },
       "top_skills": [
-        "AWS",
         "Docker",
+        "AWS",
         "Python"
       ]
     },
@@ -662,9 +662,9 @@
         "count": 0
       },
       "top_skills": [
-        "vLLM",
+        "PyTorch",
         "Python",
-        "PyTorch"
+        "Docker"
       ]
     },
     {
@@ -680,8 +680,8 @@
         "count": 0
       },
       "top_skills": [
-        "Kafka",
         "Terraform",
+        "Python",
         "GCP"
       ]
     }

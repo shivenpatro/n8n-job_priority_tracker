@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Job Market & Skill Arbitrage Monitor - Executive Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #0f172a;
+      background-color: #f8fafc;
+      font-size: 11px;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Header Section */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-title .accent-dot {
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .header-meta {
+      text-align: right;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary {
+      background: #e0e7ff;
+      color: #4338ca;
+    }
+
+    .badge-success {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .report-date {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* KPI Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .kpi-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .kpi-card:nth-child(1)::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .kpi-card:nth-child(2)::before { background: linear-gradient(90deg, #6366f1, #a855f7); }
+    .kpi-card:nth-child(3)::before { background: linear-gradient(90deg, #10b981, #34d399); }
+    .kpi-card:nth-child(4)::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+    .kpi-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .kpi-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin-bottom: 2px;
+    }
+
+    .kpi-subtext {
+      font-size: 9.5px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .trend-up {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    /* Two Columns: Top Languages & Top Frameworks */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .section-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title .icon {
+      font-size: 13px;
+    }
+
+    /* Horizontal Progress Bars */
+    .progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .progress-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .progress-meta {
+      font-size: 9.5px;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #f1f5f9;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+
+    .bar-lang { background: linear-gradient(90deg, #4f46e5, #818cf8); }
+    .bar-fw { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
+    .bar-ai { background: linear-gradient(90deg, #8b5cf6, #d946ef); }
+
+    /* AI & LLM Spotlight Section */
+    .spotlight-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .spotlight-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .spotlight-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .spotlight-badge {
+      background: rgba(139, 92, 246, 0.3);
+      border: 1px solid rgba(167, 139, 250, 0.4);
+      color: #c4b5fd;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .spotlight-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 10px 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    .spotlight-tech {
+      font-size: 11px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 2px;
+    }
+
+    .spotlight-metric {
+      font-size: 15px;
+      font-weight: 800;
+      color: #a5b4fc;
+      margin-bottom: 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .spotlight-sub {
+      font-size: 8.5px;
+      color: #94a3b8;
+    }
+
+    /* Salary Arbitrage Table */
+    .table-section {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 10px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-bottom: 1px solid #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 9px;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .salary-highlight {
+      font-weight: 700;
+      color: #047857;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .ai-pill {
+      background: #f3e8ff;
+      color: #7e22ce;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 9px;
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <div class="brand-title">
+          <span class="accent-dot"></span>
+          Tech Job Market & Skill Arbitrage Monitor
+        </div>
+        <div class="brand-subtitle">Automated Weekly Analytics & Skill Velocity Brief</div>
+      </div>
+      <div class="header-meta">
+        <span class="badge badge-primary">Zero-Server Engine</span>
+        <div class="report-date">{{GENERATED_AT}}</div>
+      </div>
+    </header>
+
+    <!-- 4 KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Analyzed Jobs</div>
+        <div class="kpi-value">{{TOTAL_JOBS}}</div>
+        <div class="kpi-subtext">Ingested & Deduped</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Dominant Language</div>
+        <div class="kpi-value">{{DOMINANT_LANGUAGE}}</div>
+        <div class="kpi-subtext"><span class="trend-up">{{DOMINANT_LANG_SHARE}}</span> market share</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Fastest Growing</div>
+        <div class="kpi-value">{{FASTEST_GROWING}}</div>
+        <div class="kpi-subtext"><span class="trend-up">{{FASTEST_GROWING_MOMENTUM}}</span> Boom Index (Δ)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Median Tech Salary</div>
+        <div class="kpi-value">{{MEDIAN_SALARY}}</div>
+        <div class="kpi-subtext">{{SALARY_QUARTILE_RANGE}}</div>
+      </div>
+    </section>
+
+    <!-- Top Languages and Frameworks -->
+    <section class="analytics-grid">
+      <!-- Languages -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">💻</span> Top Programming Languages
+          </div>
+          <span class="badge badge-primary">Market Share</span>
+        </div>
+        <div class="progress-list">
+          {{LANGUAGES_BARS}}
+        </div>
+      </div>
+
+      <!-- Frameworks -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="icon">⚡</span> In-Demand Frameworks
+          </div>
+          <span class="badge badge-primary">Market Share</span>
+        </div>
+        <div class="progress-list">
+          {{FRAMEWORKS_BARS}}
+        </div>
+      </div>
+    </section>
+
+    <!-- AI & LLM Stack Momentum Spotlight -->
+    <section class="spotlight-section">
+      <div class="spotlight-header">
+        <div class="spotlight-title">
+          <span>🤖</span> AI & Agentic Stack Momentum
+        </div>
+        <span class="spotlight-badge">Inference, Agents & Vector DBs</span>
+      </div>
+      <div class="spotlight-grid">
+        {{AI_SPOTLIGHT_CARDS}}
+      </div>
+    </section>
+
+    <!-- Salary Arbitrage Comparison Table -->
+    <section class="table-section">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="icon">💵</span> Compensation Arbitrage by Primary Specialization
+        </div>
+        <span class="badge badge-success">USD / Year</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Role Specialization</th>
+            <th>Sample Share</th>
+            <th>25th Percentile</th>
+            <th>Median Salary</th>
+            <th>75th Percentile</th>
+            <th>AI Penetration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{SALARY_TABLE_ROWS}}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-left">
+        <span>Engine: n8n Headless CLI + Node/Python</span>
+        <span>•</span>
+        <span>Commit: {{COMMIT_SHA}}</span>
+      </div>
+      <div class="footer-right">
+        <span>Tech Job Market Monitor • Page 1 of 1</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
