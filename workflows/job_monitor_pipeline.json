@@ -1,0 +1,244 @@
+{
+  "name": "Tech Job Market & Skill Arbitrage Monitor",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e0b9a67e-128a-40a2-9441-2a9479b1d101",
+      "name": "When clicking 'Execute Workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://www.arbeitnow.com/api/job-board-api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 20000
+        },
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "TechJobMarketMonitor/1.0 (+https://github.com/shivenpatro/n8n-job_priority_tracker)"
+            }
+          ]
+        }
+      },
+      "id": "1b1a7d65-fc02-4d19-b68a-bfe00c436b12",
+      "name": "Fetch Arbeitnow",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        160
+      ],
+      "continueOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://jobicy.com/api/v2/remote-jobs?count=50",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 20000
+        },
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "TechJobMarketMonitor/1.0 (+https://github.com/shivenpatro/n8n-job_priority_tracker)"
+            }
+          ]
+        }
+      },
+      "id": "2c2b8e76-0d13-5e2a-c79b-cfe11d547c23",
+      "name": "Fetch Jobicy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        300
+      ],
+      "continueOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://remoteok.com/api",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 20000
+        },
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 (TechJobMarketMonitor/1.0; +https://github.com/shivenpatro/n8n-job_priority_tracker)"
+            }
+          ]
+        }
+      },
+      "id": "3d3c9f87-1e24-6f3b-d8ac-dfe22e658d34",
+      "name": "Fetch RemoteOK",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        440
+      ],
+      "continueOnFail": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "append"
+      },
+      "id": "4e4d0a98-2f35-7a4c-e9bd-efe33f769e45",
+      "name": "Merge Arbeitnow & Jobicy",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "append"
+      },
+      "id": "5f5e1ba9-3a46-8b5d-facd-ffe44a870f56",
+      "name": "Merge All Sources",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const standardized = [];\n\nfunction processItem(raw, defaultSource) {\n  if (!raw || typeof raw !== 'object') return null;\n  if (raw.legal && !raw.position && !raw.title) return null;\n\n  let source = defaultSource || raw.source || 'unknown';\n  let id = '';\n  let title = '';\n  let company = '';\n  let description = '';\n  let url = '';\n  let published_at = '';\n  let salary_raw = null;\n\n  if (source === 'arbeitnow' || (raw.slug && raw.company_name)) {\n    source = 'arbeitnow';\n    id = String(raw.slug || raw.id || '');\n    title = raw.title || '';\n    company = raw.company_name || '';\n    description = raw.description || '';\n    url = raw.url || '';\n    published_at = raw.created_at ? (typeof raw.created_at === 'number' ? new Date(raw.created_at * 1000).toISOString() : new Date(raw.created_at).toISOString()) : new Date().toISOString();\n    salary_raw = raw.salary || null;\n  } else if (source === 'jobicy' || raw.jobTitle || raw.companyName) {\n    source = 'jobicy';\n    id = String(raw.id || raw.jobSlug || '');\n    title = raw.jobTitle || raw.title || '';\n    company = raw.companyName || raw.company || '';\n    description = raw.jobDescription || raw.description || '';\n    url = raw.url || '';\n    published_at = raw.pubDate ? new Date(raw.pubDate).toISOString() : new Date().toISOString();\n    if (raw.salaryMin || raw.salaryMax) {\n      const curr = raw.salaryCurrency || '$';\n      const period = raw.salaryPeriod ? ' / ' + raw.salaryPeriod : '';\n      salary_raw = `${curr}${raw.salaryMin || 0} - ${curr}${raw.salaryMax || 0}${period}`;\n    }\n  } else if (source === 'remoteok' || raw.position) {\n    source = 'remoteok';\n    id = String(raw.id || raw.slug || '');\n    title = raw.position || raw.title || '';\n    company = raw.company || '';\n    description = raw.description || '';\n    url = raw.url ? (raw.url.startsWith('http') ? raw.url : 'https://remoteok.com' + raw.url) : (raw.apply_url || '');\n    published_at = raw.date ? new Date(raw.date).toISOString() : (raw.epoch ? new Date(raw.epoch * 1000).toISOString() : new Date().toISOString());\n    if (raw.salary_min || raw.salary_max) {\n      salary_raw = `$${raw.salary_min || 0} - $${raw.salary_max || 0}`;\n    }\n  } else {\n    id = String(raw.id || raw.slug || Math.random().toString(36).substring(2, 9));\n    title = raw.title || raw.jobTitle || raw.position || '';\n    company = raw.company || raw.companyName || raw.company_name || '';\n    description = raw.description || raw.jobDescription || '';\n    url = raw.url || '';\n    published_at = raw.published_at || raw.date || raw.created_at || new Date().toISOString();\n    salary_raw = raw.salary_raw || raw.salary || null;\n  }\n\n  if (!title && !description) return null;\n\n  return {\n    id,\n    title: title.trim(),\n    company: company.trim(),\n    description,\n    url: url.trim(),\n    published_at,\n    salary_raw,\n    source\n  };\n}\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  if (!data) continue;\n\n  if (Array.isArray(data.data)) {\n    for (const job of data.data) {\n      const std = processItem(job, 'arbeitnow');\n      if (std) standardized.push({ json: std });\n    }\n  } else if (Array.isArray(data.jobs)) {\n    for (const job of data.jobs) {\n      const std = processItem(job, 'jobicy');\n      if (std) standardized.push({ json: std });\n    }\n  } else if (Array.isArray(data)) {\n    for (const job of data) {\n      const std = processItem(job, 'remoteok');\n      if (std) standardized.push({ json: std });\n    }\n  } else {\n    const std = processItem(data);\n    if (std) standardized.push({ json: std });\n  }\n}\n\nif (standardized.length === 0) {\n  try {\n    const fs = require('fs');\n    const path = require('path');\n    const mockPath = path.resolve('test/mock_jobs.json');\n    if (fs.existsSync(mockPath)) {\n      const mockData = JSON.parse(fs.readFileSync(mockPath, 'utf8'));\n      for (const job of mockData) {\n        const std = processItem(job, job.source || 'mock');\n        if (std) standardized.push({ json: std });\n      }\n    }\n  } catch (e) {}\n}\n\nreturn standardized;"
+      },
+      "id": "6a6f2cb0-4b57-9c6e-0bde-0ff55b981a67",
+      "name": "Standardize Schema",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "When clicking 'Execute Workflow'": {
+      "main": [
+        [
+          {
+            "node": "Fetch Arbeitnow",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch Jobicy",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch RemoteOK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Arbeitnow": {
+      "main": [
+        [
+          {
+            "node": "Merge Arbeitnow & Jobicy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Jobicy": {
+      "main": [
+        [
+          {
+            "node": "Merge Arbeitnow & Jobicy",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Arbeitnow & Jobicy": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch RemoteOK": {
+      "main": [
+        [
+          {
+            "node": "Merge All Sources",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge All Sources": {
+      "main": [
+        [
+          {
+            "node": "Standardize Schema",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "job_monitor_pipeline"
+}

@@ -1,0 +1,172 @@
+{
+  "languages": {
+    "Python": {
+      "category": "languages",
+      "patterns": ["\\bpython\\b", "\\bpython3\\b", "\\bpy\\b"]
+    },
+    "TypeScript": {
+      "category": "languages",
+      "patterns": ["\\btypescript\\b", "\\bts\\b"]
+    },
+    "JavaScript": {
+      "category": "languages",
+      "patterns": ["\\bjavascript\\b", "\\bjs\\b", "\\bes6\\b", "\\becmascript\\b"]
+    },
+    "Go": {
+      "category": "languages",
+      "patterns": ["\\bgolang\\b", "\\bgo\\b"]
+    },
+    "Rust": {
+      "category": "languages",
+      "patterns": ["\\brust\\b", "\\brustlang\\b"]
+    },
+    "Java": {
+      "category": "languages",
+      "patterns": ["\\bjava\\b", "\\bjvm\\b"]
+    },
+    "C++": {
+      "category": "languages",
+      "patterns": ["\\bc\\+\\+\\b", "\\bcpp\\b"]
+    },
+    "Ruby": {
+      "category": "languages",
+      "patterns": ["\\bruby\\b", "\\bruby on rails\\b", "\\brails\\b"]
+    },
+    "PHP": {
+      "category": "languages",
+      "patterns": ["\\bphp\\b", "\\blaravel\\b"]
+    },
+    "Swift": {
+      "category": "languages",
+      "patterns": ["\\bswift\\b", "\\bswiftui\\b", "\\bios\\b"]
+    }
+  },
+  "frameworks": {
+    "React": {
+      "category": "frameworks",
+      "patterns": ["\\breact\\b", "\\breactjs\\b", "\\breact\\.js\\b"]
+    },
+    "Next.js": {
+      "category": "frameworks",
+      "patterns": ["\\bnext\\.js\\b", "\\bnextjs\\b", "\\bnext\\b"]
+    },
+    "Vue": {
+      "category": "frameworks",
+      "patterns": ["\\bvue\\b", "\\bvuejs\\b", "\\bvue\\.js\\b", "\\bnuxt\\b"]
+    },
+    "Angular": {
+      "category": "frameworks",
+      "patterns": ["\\bangular\\b", "\\bangularjs\\b"]
+    },
+    "Node.js": {
+      "category": "frameworks",
+      "patterns": ["\\bnode\\.js\\b", "\\bnodejs\\b", "\\bnode\\b", "\\bexpress\\b", "\\bexpressjs\\b"]
+    },
+    "FastAPI": {
+      "category": "frameworks",
+      "patterns": ["\\bfastapi\\b"]
+    },
+    "Django": {
+      "category": "frameworks",
+      "patterns": ["\\bdjango\\b"]
+    },
+    "Spring Boot": {
+      "category": "frameworks",
+      "patterns": ["\\bspring boot\\b", "\\bspring-boot\\b", "\\bspring framework\\b"]
+    }
+  },
+  "ai_ml": {
+    "PyTorch": {
+      "category": "ai_ml",
+      "patterns": ["\\bpytorch\\b", "\\btorch\\b"]
+    },
+    "TensorFlow": {
+      "category": "ai_ml",
+      "patterns": ["\\btensorflow\\b", "\\btf\\b", "\\bkeras\\b"]
+    },
+    "LangChain": {
+      "category": "ai_ml",
+      "patterns": ["\\blangchain\\b", "\\blanggraph\\b"]
+    },
+    "LiteLLM": {
+      "category": "ai_ml",
+      "patterns": ["\\blitellm\\b"]
+    },
+    "vLLM": {
+      "category": "ai_ml",
+      "patterns": ["\\bvllm\\b"]
+    },
+    "HuggingFace": {
+      "category": "ai_ml",
+      "patterns": ["\\bhuggingface\\b", "\\bhugging face\\b", "\\bhf transformers\\b", "\\btransformers\\b"]
+    },
+    "OpenAI": {
+      "category": "ai_ml",
+      "patterns": ["\\bopenai\\b", "\\bgpt-?4o?\\b", "\\bchatgpt\\b", "\\bgpt-?3\\.5\\b"]
+    },
+    "Vector DBs": {
+      "category": "ai_ml",
+      "patterns": ["\\bvector db\\b", "\\bvector database\\b", "\\bpinecone\\b", "\\bqdrant\\b", "\\bweaviate\\b", "\\bchromadb?\\b", "\\bmilvus\\b"]
+    }
+  },
+  "infra_cloud": {
+    "AWS": {
+      "category": "infra_cloud",
+      "patterns": ["\\baws\\b", "\\bamazon web services\\b", "\\bec2\\b", "\\bs3\\b", "\\blambda\\b", "\\bcloudformation\\b"]
+    },
+    "GCP": {
+      "category": "infra_cloud",
+      "patterns": ["\\bgcp\\b", "\\bgoogle cloud\\b", "\\bgoogle cloud platform\\b", "\\bbigquery\\b"]
+    },
+    "Azure": {
+      "category": "infra_cloud",
+      "patterns": ["\\bazure\\b", "\\bmicrosoft azure\\b"]
+    },
+    "Docker": {
+      "category": "infra_cloud",
+      "patterns": ["\\bdocker\\b", "\\bcontainerization\\b", "\\bdocker-compose\\b", "\\bcontainers?\\b"]
+    },
+    "Kubernetes": {
+      "category": "infra_cloud",
+      "patterns": ["\\bkubernetes\\b", "\\bk8s\\b", "\\bhelm\\b"]
+    },
+    "Terraform": {
+      "category": "infra_cloud",
+      "patterns": ["\\bterraform\\b", "\\btf\\b", "\\binfrastructure as code\\b", "\\biac\\b"]
+    },
+    "CI/CD": {
+      "category": "infra_cloud",
+      "patterns": ["\\bci/cd\\b", "\\bcicd\\b", "\\bgithub actions\\b", "\\bgitlab ci\\b", "\\bjenkins\\b", "\\bcircleci\\b"]
+    },
+    "Kafka": {
+      "category": "infra_cloud",
+      "patterns": ["\\bkafka\\b", "\\bapache kafka\\b", "\\bconfluent\\b"]
+    }
+  },
+  "roles": {
+    "Backend": {
+      "category": "roles",
+      "patterns": ["\\bbackend\\b", "\\bback-end\\b", "\\bback end\\b", "\\bserver-side\\b"]
+    },
+    "Frontend": {
+      "category": "roles",
+      "patterns": ["\\bfrontend\\b", "\\bfront-end\\b", "\\bfront end\\b", "\\bui engineer\\b", "\\bweb developer\\b"]
+    },
+    "Fullstack": {
+      "category": "roles",
+      "patterns": ["\\bfullstack\\b", "\\bfull-stack\\b", "\\bfull stack\\b"]
+    },
+    "DevOps/SRE": {
+      "category": "roles",
+      "patterns": ["\\bdevops\\b", "\\bsre\\b", "\\bsite reliability\\b", "\\bplatform engineer\\b", "\\binfrastructure engineer\\b", "\\bcloud engineer\\b"]
+    },
+    "AI/ML Engineer": {
+      "category": "roles",
+      "patterns": ["\\bai engineer\\b", "\\bml engineer\\b", "\\bmachine learning engineer\\b", "\\bai/ml\\b", "\\bdeep learning\\b", "\\bllm engineer\\b", "\\bai researcher\\b"]
+    },
+    "Data Engineer": {
+      "category": "roles",
+      "patterns": ["\\bdata engineer\\b", "\\bdata engineering\\b", "\\betl developer\\b", "\\betl\\b", "\\bdata pipeline\\b", "\\banalytics engineer\\b"]
+    }
+  }
+}
