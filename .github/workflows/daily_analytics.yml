@@ -39,9 +39,34 @@ jobs:
           npm ci
           npx puppeteer browsers install chrome || true
 
-      - name: Install n8n CLI Globally
+      - name: Cache Global n8n
+        id: cache-n8n
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm-global
+          key: ${{ runner.os }}-n8n-global-v1
+
+      - name: Setup Global NPM Path
         run: |
-          npm install -g n8n
+          mkdir -p "$HOME/.npm-global"
+          npm config set prefix "$HOME/.npm-global"
+          echo "$HOME/.npm-global/bin" >> $GITHUB_PATH
+
+      - name: Install n8n CLI Globally
+        if: steps.cache-n8n.outputs.cache-hit != 'true'
+        run: |
+          npm config set fetch-retries 5
+          npm config set fetch-retry-mintimeout 20000
+          npm config set fetch-retry-maxtimeout 120000
+          npm config set fetch-timeout 300000
+          for i in 1 2 3; do
+            echo "Attempt $i: Installing n8n CLI..."
+            npm install -g n8n && break || {
+              echo "Attempt $i failed with code $?, retrying in 15 seconds..."
+              sleep 15
+            }
+          done
 
       - name: Execute Headless n8n Workflow
         env:
@@ -51,7 +76,12 @@ jobs:
           N8N_HIRING_BANNER_ENABLED: "false"
           N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "false"
         run: |
-          npx n8n execute --file workflows/job_monitor_pipeline.json
+          export PATH="$HOME/.npm-global/bin:$PATH"
+          if command -v n8n >/dev/null 2>&1; then
+            n8n execute --file workflows/job_monitor_pipeline.json
+          else
+            npx n8n execute --file workflows/job_monitor_pipeline.json
+          fi
 
       - name: Generate Executive PDF Report
         run: |
