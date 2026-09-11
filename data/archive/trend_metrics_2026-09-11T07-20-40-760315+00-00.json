@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T09:09:13.033326+00:00",
+  "generated_at": "2026-09-11T07:20:40.760315+00:00",
   "total_jobs": 6,
   "jobs_with_salary": 4,
   "overall_salary_stats": {
@@ -645,8 +645,8 @@
       },
       "top_skills": [
         "Docker",
-        "FastAPI",
-        "Python"
+        "Python",
+        "Kafka"
       ]
     },
     {
@@ -662,9 +662,9 @@
         "count": 0
       },
       "top_skills": [
-        "Docker",
-        "Vector DBs",
-        "vLLM"
+        "LangChain",
+        "vLLM",
+        "Python"
       ]
     },
     {
@@ -680,9 +680,9 @@
         "count": 0
       },
       "top_skills": [
-        "GCP",
-        "Terraform",
-        "Python"
+        "Python",
+        "Kafka",
+        "GCP"
       ]
     },
     {
@@ -698,9 +698,9 @@
         "count": 1
       },
       "top_skills": [
-        "Docker",
-        "JavaScript",
-        "TypeScript"
+        "React",
+        "Next.js",
+        "JavaScript"
       ]
     },
     {
@@ -716,9 +716,9 @@
         "count": 1
       },
       "top_skills": [
-        "Vue",
-        "JavaScript",
-        "TypeScript"
+        "React",
+        "Next.js",
+        "JavaScript"
       ]
     }
   ],

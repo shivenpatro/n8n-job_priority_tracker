@@ -281,9 +281,103 @@ async function generatePdf() {
     console.log(`[SUCCESS] Executive report generated successfully: ${OUTPUT_PDF_PATH}`);
     const stats = fs.statSync(OUTPUT_PDF_PATH);
     console.log(`[INFO] PDF file size: ${(stats.size / 1024).toFixed(1)} KB`);
+
+    // 1. Save dated archive copy: reports/archive/market_report_YYYY-MM-DD.pdf
+    const dateStr = (metrics.generated_at ? metrics.generated_at.split('T')[0] : new Date().toISOString().split('T')[0]);
+    const archiveDir = path.join(REPORTS_DIR, 'archive');
+    if (!fs.existsSync(archiveDir)) {
+      fs.mkdirSync(archiveDir, { recursive: true });
+    }
+    const archivePdfPath = path.join(archiveDir, `market_report_${dateStr}.pdf`);
+    fs.copyFileSync(OUTPUT_PDF_PATH, archivePdfPath);
+    console.log(`[INFO] Archived daily report copy to: ${archivePdfPath}`);
+
+    // 2. Update reports/reports_index.json (rolling registry of latest reports)
+    const reportsIndexPath = path.join(REPORTS_DIR, 'reports_index.json');
+    let reportsIndex = [];
+    if (fs.existsSync(reportsIndexPath)) {
+      try {
+        reportsIndex = JSON.parse(fs.readFileSync(reportsIndexPath, 'utf8'));
+      } catch (e) {}
+    }
+
+    const topSkill = (metrics.top_in_demand && metrics.top_in_demand[0]) ? metrics.top_in_demand[0].skill : 'N/A';
+    const medSalary = (metrics.overall_salary_stats && metrics.overall_salary_stats.median) ? `$${Math.round(metrics.overall_salary_stats.median).toLocaleString()}` : 'N/A';
+
+    const reportEntry = {
+      date: dateStr,
+      title: `Executive Market Brief (${dateStr})`,
+      archive_path: `reports/archive/market_report_${dateStr}.pdf`,
+      latest_link: `reports/latest_market_report.pdf`,
+      total_jobs: metrics.total_jobs || 0,
+      top_skill: topSkill,
+      median_salary: medSalary
+    };
+
+    const existingIdx = reportsIndex.findIndex(r => r.date === dateStr);
+    if (existingIdx >= 0) {
+      reportsIndex[existingIdx] = reportEntry;
+    } else {
+      reportsIndex.unshift(reportEntry);
+    }
+
+    // Keep sorted by date descending, max 30 entries in JSON registry
+    reportsIndex.sort((a, b) => b.date.localeCompare(a.date));
+    reportsIndex = reportsIndex.slice(0, 30);
+    fs.writeFileSync(reportsIndexPath, JSON.stringify(reportsIndex, null, 2), 'utf8');
+
+    // 3. Update README.md with the top 10 reports table
+    updateReadmeReportsTable(reportsIndex);
   } finally {
     await browser.close();
   }
+}
+
+/**
+ * Injects or updates the top 10 reports table in README.md
+ */
+function updateReadmeReportsTable(reportsIndex) {
+  const readmePath = path.join(ROOT_DIR, 'README.md');
+  if (!fs.existsSync(readmePath)) return;
+
+  const top10 = reportsIndex.slice(0, 10);
+  const rows = [
+    '| Date | Executive Report | Analyzed Postings | Top In-Demand Skill | Median Salary | Direct PDF Link |',
+    '| :--- | :--- | :---: | :--- | :---: | :---: |'
+  ];
+
+  for (let i = 0; i < top10.length; i++) {
+    const r = top10[i];
+    const isLatest = (i === 0);
+    const badge = isLatest ? ' `Latest`' : '';
+    const pdfLink = isLatest ? r.latest_link : r.archive_path;
+    rows.push(
+      `| **${r.date}** | ${r.title}${badge} | ${r.total_jobs} | \`${r.top_skill}\` | ${r.median_salary} | [View / Download PDF](${pdfLink}) |`
+    );
+  }
+
+  const tableMd = rows.join('\n');
+  let readme = fs.readFileSync(readmePath, 'utf8');
+
+  const startMarker = '<!-- REPORTS_TABLE_START -->';
+  const endMarker = '<!-- REPORTS_TABLE_END -->';
+
+  if (readme.includes(startMarker) && readme.includes(endMarker)) {
+    const regex = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`, 'g');
+    readme = readme.replace(regex, `${startMarker}\n${tableMd}\n${endMarker}`);
+  } else {
+    // Insert section right before ## Live Market Highlights
+    const insertPoint = '## Live Market Highlights';
+    const sectionMd = `## Recent Executive PDF Reports (Last 10 Days)\n\n> 📥 **[Download Latest Executive PDF Brief](reports/latest_market_report.pdf)**\n\n${startMarker}\n${tableMd}\n${endMarker}\n\n---\n\n`;
+    if (readme.includes(insertPoint)) {
+      readme = readme.replace(insertPoint, sectionMd + insertPoint);
+    } else {
+      readme += `\n\n${sectionMd}`;
+    }
+  }
+
+  fs.writeFileSync(readmePath, readme, 'utf8');
+  console.log('[SUCCESS] Updated README.md with recent reports table (capped at 10)');
 }
 
 if (require.main === module) {

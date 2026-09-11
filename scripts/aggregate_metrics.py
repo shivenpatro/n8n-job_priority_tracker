@@ -327,6 +327,31 @@ def generate_readme_content(metrics):
         in_demand_lines.append(f"- **{s['skill']}** (`{s['category']}`): {s['count']} postings ({s['share_pct']:.1f}% market penetration)")
     in_demand_md = "\n".join(in_demand_lines) if in_demand_lines else "- No data available yet"
 
+    # Load recent reports table from reports/reports_index.json
+    reports_index_file = ROOT_DIR / "reports" / "reports_index.json"
+    reports_table_lines = [
+        "| Date | Executive Report | Analyzed Postings | Top In-Demand Skill | Median Salary | Direct PDF Link |",
+        "| :--- | :--- | :---: | :--- | :---: | :---: |"
+    ]
+    if os.path.exists(reports_index_file):
+        try:
+            with open(reports_index_file, "r", encoding="utf-8") as f:
+                r_items = json.load(f)
+            for idx, r in enumerate(r_items[:10]):
+                badge = " `Latest`" if idx == 0 else ""
+                link = r.get("latest_link", "reports/latest_market_report.pdf") if idx == 0 else r.get("archive_path", "reports/latest_market_report.pdf")
+                reports_table_lines.append(
+                    f"| **{r.get('date')}** | {r.get('title')}{badge} | {r.get('total_jobs')} | `{r.get('top_skill')}` | {r.get('median_salary')} | [View / Download PDF]({link}) |"
+                )
+        except Exception:
+            pass
+
+    if len(reports_table_lines) == 2:
+        reports_table_lines.append(
+            f"| **{gen_time[:10]}** | Executive Market Brief `Latest` | {total_jobs} | Active | {med_sal_str} | [View / Download PDF](reports/latest_market_report.pdf) |"
+        )
+    reports_table_md = "\n".join(reports_table_lines)
+
     readme_content = f"""# Tech Job Market & Skill Arbitrage Monitor
 
 > **Zero-server, autonomous analytics pipeline** powered by headless **n8n**, Node.js/Python, and GitHub Actions. Ingests remote tech postings, performs bounded regex token extraction, computes skill velocity ("Boom Index"), indexes compensation percentiles, and publishes live market artifacts directly to this repository.
@@ -336,6 +361,16 @@ def generate_readme_content(metrics):
 ![Runtime](https://img.shields.io/badge/n8n-headless%20CLI-EA4B71.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg)
 ![Last Run](https://img.shields.io/badge/Last%20Run-{gen_time.replace(' ', '%20')}-blue)
+
+---
+
+## Recent Executive PDF Reports (Last 10 Days)
+
+> [Download Latest Executive PDF Brief](reports/latest_market_report.pdf)
+
+<!-- REPORTS_TABLE_START -->
+{reports_table_md}
+<!-- REPORTS_TABLE_END -->
 
 ---
 
