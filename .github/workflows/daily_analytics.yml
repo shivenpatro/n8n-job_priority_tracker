@@ -28,10 +28,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Setup Node.js 20
+      - name: Setup Node.js (LTS)
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install System Dependencies for Puppeteer & Chromium

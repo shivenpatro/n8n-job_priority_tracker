@@ -6,11 +6,11 @@
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Runtime](https://img.shields.io/badge/n8n-headless%20CLI-EA4B71.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg)
-![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-10%2019:12:56%20UTC-blue)
+![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-11%2007:20:40%20UTC-blue)
 
 ---
 
-## Live Market Highlights (Latest Run: `2026-09-10 19:12:56 UTC`)
+## Live Market Highlights (Latest Run: `2026-09-11 07:20:40 UTC`)
 
 | Total Jobs Ingested | Postings with Salary | Market Median Salary | Active Categories |
 | :---: | :---: | :---: | :---: |
@@ -71,11 +71,11 @@
 <!-- ROLE_TABLE_START -->
 | Role | Postings | Share | AI Skill Penetration | Median Salary | Top Required Skills |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Backend** | 2 | 33.3% | `0.0%` | $166,250 | Docker, Python, FastAPI |
-| **AI/ML Engineer** | 1 | 16.7% | `100.0%` | N/A | LangChain, Python, LiteLLM |
-| **Data Engineer** | 1 | 16.7% | `0.0%` | N/A | GCP, Python, Kafka |
-| **Fullstack** | 1 | 16.7% | `0.0%` | $162,500 | Next.js, CI/CD, Docker |
-| **Frontend** | 1 | 16.7% | `0.0%` | $115,000 | Next.js, Vue, React |
+| **Backend** | 2 | 33.3% | `0.0%` | $166,250 | Docker, Python, Kafka |
+| **AI/ML Engineer** | 1 | 16.7% | `100.0%` | N/A | LangChain, vLLM, Python |
+| **Data Engineer** | 1 | 16.7% | `0.0%` | N/A | Python, Kafka, GCP |
+| **Fullstack** | 1 | 16.7% | `0.0%` | $162,500 | React, Next.js, JavaScript |
+| **Frontend** | 1 | 16.7% | `0.0%` | $115,000 | React, Next.js, JavaScript |
 <!-- ROLE_TABLE_END -->
 
 ---
