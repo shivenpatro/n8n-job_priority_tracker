@@ -80,24 +80,26 @@ function buildHtml(metrics, templateHtml) {
   const fastestGrowing = (metrics.top_fastest_growing || [])[0] || { skill: 'N/A', delta_momentum: 0 };
   const momentumStr = (fastestGrowing.delta_momentum >= 0 ? '+' : '') + fastestGrowing.delta_momentum.toFixed(1) + '%';
 
-  // Median Salary & Quartiles
+  // Median Salary & Quartiles (Explicitly enforce 'en-US' locale for standard international grouping)
   const salStats = metrics.overall_salary_stats || {};
-  const medianSalStr = salStats.median ? `$${Math.round(salStats.median).toLocaleString()}` : 'N/A';
+  const medianSalStr = salStats.median ? `$${Math.round(salStats.median).toLocaleString('en-US')}` : 'N/A';
   let quartileRangeStr = 'Full-time Normalized (USD)';
   if (salStats.p25 && salStats.p75) {
     quartileRangeStr = `$${Math.round(salStats.p25 / 1000)}k - $${Math.round(salStats.p75 / 1000)}k (IQR)`;
   }
 
-  // Languages Horizontal Bars (Top 5)
-  const topLanguages = langSkills.slice(0, 5);
+  // Languages Horizontal Bars (Top 5 active)
+  const activeLanguages = langSkills.filter(l => l.count > 0);
+  const topLanguages = (activeLanguages.length > 0 ? activeLanguages : langSkills).slice(0, 5);
   const maxLangShare = topLanguages.length > 0 ? Math.max(...topLanguages.map(l => l.share_pct), 1) : 100;
   const langBarsHtml = topLanguages.map(l => {
     const barWidth = Math.max(Math.round((l.share_pct / maxLangShare) * 100), 8);
+    const jobUnit = l.count === 1 ? 'job' : 'jobs';
     return `
       <div class="progress-item">
         <div class="progress-header">
           <span>${l.skill}</span>
-          <span class="progress-meta">${l.count} jobs (${l.share_pct.toFixed(1)}%)</span>
+          <span class="progress-meta">${l.count} ${jobUnit} (${l.share_pct.toFixed(1)}%)</span>
         </div>
         <div class="progress-bar-bg">
           <div class="progress-bar-fill bar-lang" style="width: ${barWidth}%;"></div>
@@ -105,18 +107,20 @@ function buildHtml(metrics, templateHtml) {
       </div>`;
   }).join('\n') || '<div class="progress-item">No language data recorded</div>';
 
-  // Frameworks Horizontal Bars (Top 5)
+  // Frameworks Horizontal Bars (Top 5 active)
   const fwSkills = (metrics.skills_breakdown || []).filter(s => s.category === 'frameworks');
   fwSkills.sort((a, b) => b.count - a.count);
-  const topFrameworks = fwSkills.slice(0, 5);
+  const activeFrameworks = fwSkills.filter(f => f.count > 0);
+  const topFrameworks = (activeFrameworks.length > 0 ? activeFrameworks : fwSkills).slice(0, 5);
   const maxFwShare = topFrameworks.length > 0 ? Math.max(...topFrameworks.map(f => f.share_pct), 1) : 100;
   const fwBarsHtml = topFrameworks.map(f => {
     const barWidth = Math.max(Math.round((f.share_pct / maxFwShare) * 100), 8);
+    const jobUnit = f.count === 1 ? 'job' : 'jobs';
     return `
       <div class="progress-item">
         <div class="progress-header">
           <span>${f.skill}</span>
-          <span class="progress-meta">${f.count} jobs (${f.share_pct.toFixed(1)}%)</span>
+          <span class="progress-meta">${f.count} ${jobUnit} (${f.share_pct.toFixed(1)}%)</span>
         </div>
         <div class="progress-bar-bg">
           <div class="progress-bar-fill bar-fw" style="width: ${barWidth}%;"></div>
@@ -137,11 +141,12 @@ function buildHtml(metrics, templateHtml) {
     .map(name => {
       const s = allSkillsMap[name];
       const deltaSign = s.delta_momentum >= 0 ? '+' : '';
+      const postingUnit = s.count === 1 ? 'posting' : 'postings';
       return `
         <div class="spotlight-card">
           <div class="spotlight-tech">${s.skill}</div>
           <div class="spotlight-metric">${s.share_pct.toFixed(1)}%</div>
-          <div class="spotlight-sub">${s.count} postings (${deltaSign}${s.delta_momentum.toFixed(1)}% Δ)</div>
+          <div class="spotlight-sub">${s.count} ${postingUnit} (${deltaSign}${s.delta_momentum.toFixed(1)}% Δ)</div>
         </div>`;
     });
 
@@ -153,11 +158,12 @@ function buildHtml(metrics, templateHtml) {
     for (const s of generalAi) {
       if (!spotlightCards.some(card => card.includes(s.skill)) && spotlightCards.length < 4) {
         const deltaSign = s.delta_momentum >= 0 ? '+' : '';
+        const postingUnit = s.count === 1 ? 'posting' : 'postings';
         spotlightCards.push(`
           <div class="spotlight-card">
             <div class="spotlight-tech">${s.skill}</div>
             <div class="spotlight-metric">${s.share_pct.toFixed(1)}%</div>
-            <div class="spotlight-sub">${s.count} postings (${deltaSign}${s.delta_momentum.toFixed(1)}% Δ)</div>
+            <div class="spotlight-sub">${s.count} ${postingUnit} (${deltaSign}${s.delta_momentum.toFixed(1)}% Δ)</div>
           </div>`);
       }
     }
@@ -165,12 +171,12 @@ function buildHtml(metrics, templateHtml) {
 
   const spotlightHtml = spotlightCards.join('\n') || '<div class="spotlight-card"><div class="spotlight-tech">AI Stack Active</div></div>';
 
-  // Salary Arbitrage Table Rows
+  // Salary Arbitrage Table Rows (Enforce 'en-US' locale for consistent USD numbers)
   const salaryRowsHtml = (metrics.roles_breakdown || []).map(r => {
     const stats = r.salary_stats || {};
-    const p25Str = stats.p25 ? `$${Math.round(stats.p25).toLocaleString()}` : '—';
-    const medStr = stats.median ? `$${Math.round(stats.median).toLocaleString()}` : '—';
-    const p75Str = stats.p75 ? `$${Math.round(stats.p75).toLocaleString()}` : '—';
+    const p25Str = stats.p25 ? `$${Math.round(stats.p25).toLocaleString('en-US')}` : '—';
+    const medStr = stats.median ? `$${Math.round(stats.median).toLocaleString('en-US')}` : '—';
+    const p75Str = stats.p75 ? `$${Math.round(stats.p75).toLocaleString('en-US')}` : '—';
     return `
       <tr>
         <td><strong>${r.role}</strong></td>
@@ -302,7 +308,7 @@ async function generatePdf() {
     }
 
     const topSkill = (metrics.top_in_demand && metrics.top_in_demand[0]) ? metrics.top_in_demand[0].skill : 'N/A';
-    const medSalary = (metrics.overall_salary_stats && metrics.overall_salary_stats.median) ? `$${Math.round(metrics.overall_salary_stats.median).toLocaleString()}` : 'N/A';
+    const medSalary = (metrics.overall_salary_stats && metrics.overall_salary_stats.median) ? `$${Math.round(metrics.overall_salary_stats.median).toLocaleString('en-US')}` : 'N/A';
 
     const reportEntry = {
       date: dateStr,

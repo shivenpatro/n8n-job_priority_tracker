@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Runtime](https://img.shields.io/badge/n8n-headless%20CLI-EA4B71.svg)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg)
-![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-11%2009:09:13%20UTC-blue)
+![Last Run](https://img.shields.io/badge/Last%20Run-2026-09-11%2009:23:26%20UTC-blue)
 
 ---
 
@@ -17,12 +17,12 @@
 <!-- REPORTS_TABLE_START -->
 | Date | Executive Report | Analyzed Postings | Top In-Demand Skill | Median Salary | Direct PDF Link |
 | :--- | :--- | :---: | :--- | :---: | :---: |
-| **2026-09-11** | Executive Market Brief (2026-09-11) `Latest` | 6 | `Docker` | $1,52,500 | [View / Download PDF](reports/latest_market_report.pdf) |
+| **2026-09-11** | Executive Market Brief (2026-09-11) `Latest` | 6 | `Docker` | $152,500 | [View / Download PDF](reports/latest_market_report.pdf) |
 <!-- REPORTS_TABLE_END -->
 
 ---
 
-## Live Market Highlights (Latest Run: `2026-09-11 09:09:13 UTC`)
+## Live Market Highlights (Latest Run: `2026-09-11 09:23:26 UTC`)
 
 | Total Jobs Ingested | Postings with Salary | Market Median Salary | Active Categories |
 | :---: | :---: | :---: | :---: |
@@ -83,11 +83,11 @@
 <!-- ROLE_TABLE_START -->
 | Role | Postings | Share | AI Skill Penetration | Median Salary | Top Required Skills |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Backend** | 2 | 33.3% | `0.0%` | $166,250 | Docker, FastAPI, Python |
-| **AI/ML Engineer** | 1 | 16.7% | `100.0%` | N/A | Docker, Vector DBs, vLLM |
-| **Data Engineer** | 1 | 16.7% | `0.0%` | N/A | GCP, Terraform, Python |
-| **Fullstack** | 1 | 16.7% | `0.0%` | $162,500 | Docker, JavaScript, TypeScript |
-| **Frontend** | 1 | 16.7% | `0.0%` | $115,000 | Vue, JavaScript, TypeScript |
+| **Backend** | 2 | 33.3% | `0.0%` | $166,250 | Docker, Python, AWS |
+| **AI/ML Engineer** | 1 | 16.7% | `100.0%` | N/A | Python, PyTorch, AWS |
+| **Data Engineer** | 1 | 16.7% | `0.0%` | N/A | Python, CI/CD, Kafka |
+| **Fullstack** | 1 | 16.7% | `0.0%` | $162,500 | Next.js, React, CI/CD |
+| **Frontend** | 1 | 16.7% | `0.0%` | $115,000 | Next.js, React, Vue |
 <!-- ROLE_TABLE_END -->
 
 ---

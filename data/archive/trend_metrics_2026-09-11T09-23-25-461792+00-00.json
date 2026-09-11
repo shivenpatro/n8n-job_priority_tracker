@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T09:23:26.916256+00:00",
+  "generated_at": "2026-09-11T09:23:25.461792+00:00",
   "total_jobs": 6,
   "jobs_with_salary": 4,
   "overall_salary_stats": {
@@ -663,8 +663,8 @@
       },
       "top_skills": [
         "Python",
-        "PyTorch",
-        "AWS"
+        "Vector DBs",
+        "vLLM"
       ]
     },
     {
@@ -680,9 +680,9 @@
         "count": 0
       },
       "top_skills": [
+        "GCP",
         "Python",
-        "CI/CD",
-        "Kafka"
+        "Terraform"
       ]
     },
     {
@@ -698,9 +698,9 @@
         "count": 1
       },
       "top_skills": [
-        "Next.js",
-        "React",
-        "CI/CD"
+        "TypeScript",
+        "Node.js",
+        "Next.js"
       ]
     },
     {
@@ -716,9 +716,9 @@
         "count": 1
       },
       "top_skills": [
-        "Next.js",
-        "React",
-        "Vue"
+        "TypeScript",
+        "Vue",
+        "Next.js"
       ]
     }
   ],
